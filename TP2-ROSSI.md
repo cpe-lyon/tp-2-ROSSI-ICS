@@ -10,7 +10,7 @@ Il faut regarder le contenu de la varible $PATH :
 __2. Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans
 votre répertoire personnel ?__
 
-C'est la variable $HOME que j'ai trouvé graçe à ```set | grep /home/thomas```
+C'est la variable $HOME que j'ai trouvé grace à ```set | grep /home/thomas```
 
 **3. Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _.**
 
