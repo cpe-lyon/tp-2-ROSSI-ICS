@@ -256,5 +256,5 @@ moy=$(($somme/$j))
 echo "Le chiffre minimum est $min"
 echo "Le chiffre moyen est $moy"
 echo "Le chiffre maximun est $max"
-echo "Liste des valeurs que vous avez entrer : ${tab[*]}"
+echo "Liste des valeurs que vous avez entrer sous forme de tableau : ${tab[*]}"
 ```
