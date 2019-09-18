@@ -173,3 +173,27 @@ echo $fct
 
 # Exercice 6. Le juste prix
 
+**Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner.
+Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).**
+
+```
+alea=$((1 + RANDOM % 1000))
+
+while [ true ]
+do
+
+        read -p "Entrer un nombre entre 1 et 1000 : " nb
+
+        if [ $nb -lt $alea ]; then
+                echo "Le nombre est plus grand !"
+        elif [ $nb -gt $alea ]; then
+                echo "Le nombre est plus petit !"
+        else
+                echo "Vous avez trouver le bon nombre, c'est $nb"
+                exit
+        fi
+done
+```
+
+# Exercice 7. Statistiques
+
