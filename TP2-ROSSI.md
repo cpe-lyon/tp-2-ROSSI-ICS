@@ -197,3 +197,64 @@ done
 
 # Exercice 7. Statistiques
 
+**1. Écrivez un script qui prend en paramètres trois entiers (entre -100 et +100) et affiche le min, le max
+et la moyenne. Vous pouvez réutiliser la fonction de l’exercice 3 pour vous assurer que les paramètres
+sont bien des entiers.
+2. Généralisez le programme à un nombre quelconque de paramètres (pensez à SHIFT)
+3. Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies et
+stockées au fur et à mesure dans un tableau.**
+
+## Voici mon script final
+```
+function is_number()
+{
+        re='^[+-]?[0-9]+([.][0-9]+)?$'
+        if ! [[ $1 =~ $re ]] ; then
+                return 1
+        else
+                return 0
+        fi
+}
+echo -n "Entrer la liste des valeurs séparer par un espace : "
+read -a tab
+j=0
+
+min=${tab[1]}
+max=${tab[1]}
+moy=${tab[1]}
+
+for i in ${tab[*]}
+do
+        is_number $i
+        if [ $? = 0 ]; then
+                if [ $i -lt -100 ] || [ $i -gt 100 ]; then
+                        echo "$1 est un nombre mais est inférieur à -100 ou supérieur à 100"
+                else
+                        if [ $i -gt $max ]; then
+                                max=$i
+                        fi
+
+                        if [ $i -lt $min ]; then
+                                min=$i
+                        fi
+
+                        somme=$(($somme+$i))
+                        ((j++))
+
+
+                fi
+
+        else
+                echo "$1 n'est pas un nombre"
+
+        fi
+
+        shift
+done
+
+moy=$(($somme/$j))
+echo "Le chiffre minimum est $min"
+echo "Le chiffre moyen est $moy"
+echo "Le chiffre maximun est $max"
+echo "Liste des valeurs que vous avez entrer : ${tab[*]}"
+```
